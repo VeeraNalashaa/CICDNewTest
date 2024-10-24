@@ -58,11 +58,11 @@ pipeline {
 	        stage('Deploy to UAT') {
 	            steps {
 	                echo "Deploying ${BRANCH_NAME} to UAT "
+			    echo "Deploying ${UIPATH_ORCH_URL} to UAT ",	
 	                UiPathDeploy (
 				createProcess: true,
 	                packagePath: "Output\\${env.BUILD_NUMBER}",
-	                orchestratorAddress: "${UIPATH_ORCH_URL}",
-			echo "Deploying ${UIPATH_ORCH_URL} to UAT ",	
+	                orchestratorAddress: "${UIPATH_ORCH_URL}",			
 	                orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
 	                folderName: "${UIPATH_ORCH_FOLDER_NAME}",
 	                environments: 'DEV',
